@@ -1,0 +1,25 @@
+<div class="container">
+
+  <!-- Example HTML! -->
+  <!--<div class="row">-->
+  <!--<div class="col-xs-6 col-md-3">-->
+  <!--<a class="thumbnail" href="#">-->
+  <!--<img src="http://img.youtube.com/vi/UE2F9sEWoSk/mqdefault.jpg" alt="..."/>-->
+  <!--<div class="caption">-->
+  <!--<h3>Sync Github Fork</h3>-->
+  <!--<p>After you fork a repository, keep it up to date with the latest changes by running a few simple Git commands</p>-->
+  <!--</div>-->
+  <!--</a>-->
+  <!--</div>-->
+  <div class="row">
+    <div class="col-xs-6 col-md-3" ng-repeat="video in launchCodeVideos">
+      <a class="thumbnail" href="http://localhost:63342/launchcode-tv/#/videos/{{video.thumb.split('/')[1].split('.')[0].split('_')[0]}}">
+        <img src="{{video.thumb}}" alt="..."/>
+        <div class="caption">
+          <h3>{{video.title}}</h3>
+          <p>{{video.description}}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

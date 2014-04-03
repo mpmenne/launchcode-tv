@@ -1,0 +1,8 @@
+[
+  {"name":"HTML/CSS", "videos":["chrome-inspect", "chrome-easy-css", "chrome-javascript-debugger", "scrape-json-from-websites", "live-edit", "html-zen-coding"]},
+  {"name":"Javascript", "videos":["chrome-javascript-debugger", "javascript-basics", "webstorm-javascript-debugging"]},
+  {"name":"Git", "videos":["easy-versioning-with-git", "github", "github-pull-request", "sync-github-fork"]},
+  {"name":"Linux", "videos":["linux-file-permissions"]},
+  {"name":"C", "videos":["linux-file-permissions","gdb-debugger"]},
+  {"name":"Deployment", "videos":["ngrok"]}
+]

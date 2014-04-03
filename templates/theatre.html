@@ -1,0 +1,31 @@
+
+<h1>{{currentlyShowingVideo.title}}</h1>
+<div class="row">
+  <div id="videoPlayer" class="col-xs-6 col-md-6">
+    <!--<iframe width="1020" height="630"  frameborder="0" allowfullscreen></iframe>-->
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col md-6">
+    <p><strong>Description</strong>: {{currentlyShowingVideo.description}}</p>
+  </div>
+</div>
+
+<br/>
+<div class="center-block row">
+  <div class="col-xs-12 col-md-12">
+    <button type="button" class="btn btn-primary">Previous: Easy CSS with Chrome</button>
+    <button type="button" class="btn btn-success">Next: Chrome Debugging</button>
+  </div>
+
+  <div class="col-xs-6 col-md-6"></div>
+</div>
+<br/>
+<h5>Related Videos in Series</h5>
+<div class="row" ng-repeat="video in currentLesson.fullVideos">
+  <div class="col-xs-12 col-md-12">
+    <!--<p ng-class="{bg-success:video.currentVideo}"><a href="">{{$index + 1}}.  {{video.title}}</a></p>-->
+    <p ng-class="{current:video.currentVideo, notCurrent:!video.currentVideo}"><a href="#/videos/{{video.thumb.split('/')[1].split('.')[0].split('_')[0]}}">{{$index + 1}}.  <strong>{{video.title}}</strong> ---- <em>{{video.description}}</em></a></p>
+  </div>
+  <div class="col-xs-6 col-md-6"></div>
+</div>
