@@ -22,12 +22,11 @@ angular.module("uiRouterExample", ["ui.router"]).config(function($stateProvider,
 });
 
 
-launchCodeTvApp.controller('SummaryCtrl', function($scope, $http, $filter) {
+launchCodeTvApp.controller('SummaryCtrl', function($scope, $http, $filter, $location) {
   var app = this;
 
   $scope.launchCodeVideos = [];
   $scope.launchCodeVideoSeries = [];
-  $scope.visibleVideos = $scope.launchCodeVideos;
   $scope.selectedSeries = "";
 
   $http.get('rest/videos.json')
@@ -47,9 +46,7 @@ launchCodeTvApp.controller('SummaryCtrl', function($scope, $http, $filter) {
   $scope.selectSeries = function(name) {
     $scope.selectedSeries = name;
     console.log("Series has changed to " + $scope.selectedSeries);
-//    $scope.visibleVideos = $filter('videoFilter')($scope.launchCodeVideos, $scope.selectedSeries);
-    $scope.visibleVideos = $scope.launchCodeVideos;
-//    $scope.$apply();
+    $location.path("/home")
   }
 });
 
