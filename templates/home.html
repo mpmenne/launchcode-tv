@@ -13,8 +13,10 @@
   <!--</a>-->
   <!--</div>-->
   <div class="row">
-    <div class="col-xs-3 col-md-3 " ng-repeat="video in launchCodeVideos">
-      <a class="thumbnail" href="http://localhost:63342/launchcode-tv/#/videos/{{video.thumb.split('/')[1].split('.')[0].split('_')[0]}}">
+    <h1>{{lessonSeries}}</h1>
+    <!--<div class="col-xs-3 col-md-3 " ng-repeat="video in launchCodeVideos | videoFilter:selectedSeries track by video.key">-->
+    <div class="col-xs-3 col-md-3 " ng-repeat="video in launchCodeVideos | videoFilter:selectedSeries">
+      <a ng-mouse-enter="lessonSeries='HTML'" class="thumbnail" href="http://localhost:63342/launchcode-tv/#/videos/{{video.thumb.split('/')[1].split('.')[0].split('_')[0]}}">
         <img src="{{video.thumb}}" alt="..."/>
         <div class="caption">
           <h3>{{video.title}}</h3>

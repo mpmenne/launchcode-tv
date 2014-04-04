@@ -6,8 +6,8 @@ angular.module("uiRouterExample", ["ui.router"]).config(function($stateProvider,
   $stateProvider
       .state('home', {
         url: '/home',
-        templateUrl: 'templates/home.html',
-        controller: 'SummaryCtrl'
+        templateUrl: 'templates/home.html'
+//        controller: 'SummaryCtrl'
       })
       .state('videoList', {
         url: '/videos',
@@ -22,11 +22,13 @@ angular.module("uiRouterExample", ["ui.router"]).config(function($stateProvider,
 });
 
 
-launchCodeTvApp.controller('SummaryCtrl', function($scope, $http) {
+launchCodeTvApp.controller('SummaryCtrl', function($scope, $http, $filter) {
   var app = this;
 
   $scope.launchCodeVideos = [];
   $scope.launchCodeVideoSeries = [];
+  $scope.visibleVideos = $scope.launchCodeVideos;
+  $scope.selectedSeries = "";
 
   $http.get('rest/videos.json')
       .success(function(data) {
@@ -41,6 +43,43 @@ launchCodeTvApp.controller('SummaryCtrl', function($scope, $http) {
       }).error(function(data) {
         alert("There was a problem retrieving the lessons");
       });
+
+  $scope.selectSeries = function(name) {
+    $scope.selectedSeries = name;
+    console.log("Series has changed to " + $scope.selectedSeries);
+//    $scope.visibleVideos = $filter('videoFilter')($scope.launchCodeVideos, $scope.selectedSeries);
+    $scope.visibleVideos = $scope.launchCodeVideos;
+//    $scope.$apply();
+  }
+});
+
+launchCodeTvApp.filter('videoFilter', function ($http) {
+  var lessons = [];
+  $http.get('rest/lessons.json')
+      .success(function(data) {
+        lessons = data;
+      }).error(function(data) { alert("There was a problem retrieving the lessons"); });
+
+  return function (items, search) {
+    var selectedLesson = {};
+    for (var i = 0; i < lessons.length; i++) {
+      if (lessons[i].name === search) {
+        selectedLesson = lessons[i];
+      }
+    }
+    if (!lessons || !search) { return items; }
+    var result = [];
+    angular.forEach(items, function (value, key) {
+        console.log("searching" + search + " ..... " + value.key + " key " + key);
+        if (selectedLesson.videos && selectedLesson.videos.indexOf(value.key) != -1) {
+          result.push(value);
+        } else if (!selectedLesson) {
+          result.push(value);
+        }
+    });
+    return result;
+
+  }
 });
 
 launchCodeTvApp.controller('TheatreCtrl', function($scope, $http, $stateParams, $sce, $q) {
