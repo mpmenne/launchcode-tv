@@ -9,8 +9,13 @@ angular.module("uiRouterExample", ["ui.router"]).config(function($stateProvider,
         templateUrl: 'templates/home.html',
         controller: 'SummaryCtrl'
       })
+      .state('videoList', {
+        url: '/videos',
+        templateUrl: 'templates/home.html',
+        controller: 'SummaryCtrl'
+      })
       .state('theatre', {
-        url: '/videos/:videoName',
+        url: '/videos/:videoName?lesson',
         templateUrl: 'templates/theatre.html',
         controller: 'TheatreCtrl'
       })
@@ -21,6 +26,7 @@ launchCodeTvApp.controller('SummaryCtrl', function($scope, $http) {
   var app = this;
 
   $scope.launchCodeVideos = [];
+  $scope.launchCodeVideoSeries = [];
 
   $http.get('rest/videos.json')
       .success(function(data) {
@@ -29,61 +35,109 @@ launchCodeTvApp.controller('SummaryCtrl', function($scope, $http) {
         alert("There was a problem retrieving the videos");
       });
 
+  $http.get('rest/lessons.json')
+      .success(function(data) {
+        $scope.launchCodeVideoSeries = data;
+      }).error(function(data) {
+        alert("There was a problem retrieving the lessons");
+      });
 });
 
-launchCodeTvApp.controller('TheatreCtrl', function($scope, $http, $stateParams, $sce) {
+launchCodeTvApp.controller('TheatreCtrl', function($scope, $http, $stateParams, $sce, $q) {
   var app = this;
 
+  $scope.videos = [];
+  $scope.lessons = [];
   $scope.currentlyShowingVideo = {};
-  $scope.currentVideoUrl = function() {
-    angular.element('#videoPlayer').append("<iframe frameborder='0' src='" + $scope.currentlyShowingVideo.url + "' width='650' height='450'></iframe>")
-//    angular.element('#videoPlayer').append("<iframe frameborder='0' src='" + "//www.youtube.com/embed/yJ92wdrlNdg" + "' width='650' height='450'></iframe>")
-    angular.element('#videoPlayer').append("<h1>" + $scope.currentlyShowingVideo.title + "</h1>");
-//    return $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + $scope.currentlyShowingVideo.thumb.split('/')[1].split('.')[0].split('_')[0]);
-    //return $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + videoName);
-  }
+  $scope.relatedVideos = [];
   $scope.currentLesson = {};
+  $scope.nextVideoLessonName = "";
+  $scope.nextVideoLessonUrlName = "";
+  $scope.previousVideoLessonName = "";
+  $scope.previousVideoLessonUrlName = "";
+
+  $scope.addVideoPlayer = function() {
+    angular.element('#videoPlayer').append("<iframe frameborder='0' src='" + $scope.currentlyShowingVideo.url + "' width='650' height='450'></iframe>")
+    angular.element('#videoPlayer').append("<h1>" + $scope.currentlyShowingVideo.title + "</h1>");
+  }
+
+  $scope.getVideoByName = function(videoName) {
+    var matches = _.filter($scope.videos, function(video) {
+      return videoName === video.thumb.split('/')[1].split('.')[0].split('_')[0]
+    });
+    if (matches) { return matches[0]; } return {};
+  }
+
+  $scope.getLessonForVideo = function(lessonName) {
+    var matches = _.filter($scope.lessons, function(lesson) {
+      return lessonName === lesson.name;
+    });
+    if (matches) { return matches[0]; } else { console.log("didn't find a lesson for this video"); return {}; }
+  }
+
+  $scope.getVideosForLesson = function(lesson) {
+    var videos = []
+    for (var i = 0; i < lesson.videos.length; i++) {
+      var fullVideo = $scope.getVideoByName(lesson.videos[i]);
+      if (fullVideo.thumb.split('/')[1].split('.')[0].split('_')[0] === $scope.currentlyShowingVideo.thumb.split('/')[1].split('.')[0].split('_')[0]) {
+        fullVideo.current = true;
+      }
+      videos.push(fullVideo);
+    }
+    return videos;
+  }
+
+  $scope.findNextLessonVideo = function() {
+    var videosForLesson = $scope.getVideosForLesson($scope.currentLesson);
+    if (!videosForLesson) { return {}; }
+    for (var i = 0; i < videosForLesson.length; i++) {
+      if (videosForLesson[i].current) {
+        return videosForLesson[i + 1];
+      }
+    }
+  }
+
+  $scope.findPreviousLessonVideo = function() {
+    var videosForLesson = $scope.getVideosForLesson($scope.currentLesson);
+    if (!videosForLesson) { return {}; }
+    for (var i = 0; i < videosForLesson.length; i++) {
+      if (videosForLesson[i].current) {
+        return videosForLesson[i - 1];
+      }
+    }
+  }
+
+  // We use promises to as callbacks for when the HTTP call returns from the service
+  var videosPromise = $q.defer();
+  var lessonPromise = $q.defer();
+  // $q.all simply waits until all of the specified HTTP requests have completed
+  var all = $q.all([videosPromise.promise, lessonPromise.promise]);
+  // this is the promise callback.  this gets called when both the video and lesson HTTP calls return
+  all.then(function(promiseData) {
+    $scope.videos = promiseData[0];
+    $scope.lessons = promiseData[1];
+    $scope.currentlyShowingVideo = $scope.getVideoByName($stateParams.videoName);
+    if ($stateParams.lesson) {
+      $scope.currentLesson = $scope.getLessonForVideo($stateParams.lesson);
+      $scope.relatedVideos = $scope.getVideosForLesson($scope.currentLesson);
+      if($scope.findNextLessonVideo()) {
+        $scope.nextVideoLessonName = $scope.findNextLessonVideo().title;
+        $scope.nextVideoLessonUrlName = $scope.findNextLessonVideo().thumb.split('/')[1].split('.')[0].split('_')[0];
+      }
+      if ($scope.findPreviousLessonVideo()) {
+        $scope.previousVideoLessonName = $scope.findPreviousLessonVideo().title;
+        $scope.previousVideoLessonUrlName = $scope.findPreviousLessonVideo().thumb.split('/')[1].split('.')[0].split('_')[0];
+      }
+    }
+    $scope.addVideoPlayer();
+    console.log("all done!!!!  videos: " + $scope.videos.length + "  lessons: " + $scope.lessons.length);
+  });
 
   $http.get('rest/videos.json').success(function(data) {
+    videosPromise.resolve(data);
+  }).error(function() { alert("There was a problem retrieving the videos"); });
 
-
-        function getVideoByName(videoName) {
-          var matches = _.filter(data, function(video) {
-            return videoName === video.thumb.split('/')[1].split('.')[0].split('_')[0]
-          });
-          if (matches) {
-            return matches[0];
-          }
-          return {};
-        }
-
-        // returns and array of videos matching the filter criteria
-        var matches = _.filter(data, function(video) {
-          return $stateParams.videoName === video.thumb.split('/')[1].split('.')[0].split('_')[0]
-        });
-        if (matches) {
-          $scope.currentlyShowingVideo = matches[0];
-        }
-
-        // we should use a javascript promise here, but I want to keep things simple for those new to angular
-        $http.get('rest/lessons.json').success(function(lessonData) {
-          var lessonMatches = _.filter(lessonData, function(lesson) {
-            return lesson.videos.indexOf($stateParams.videoName);
-          });
-          if (lessonMatches) {
-            $scope.currentLesson = lessonMatches[0];
-            // this could probably be done with a closure... this code could be better
-            $scope.currentLesson.fullVideos = [];
-            for (var i = 0; i < $scope.currentLesson.videos.length; i++) {
-              $scope.currentLesson.fullVideos.push(getVideoByName($scope.currentLesson.videos[i]));
-              if ($scope.currentLesson.videos[i] === $scope.currentlyShowingVideo.thumb.split('/')[1].split('.')[0].split('_')[0]) {
-                console.log("found the current video " + $scope.currentLesson.videos[i]);
-                $scope.currentLesson.fullVideos[$scope.currentLesson.fullVideos.length - 1].currentVideo = true;
-                $scope.currentVideoUrl($scope.currentLesson.videos[i]);
-              }
-            }
-          }
-        }).error(function() { alert("There was a problem retrieving the lesson"); });
-      }).error(function() { alert("There was a problem retrieving the videos"); });
-
+  $http.get('rest/lessons.json').success(function(lessonData) {
+    lessonPromise.resolve(lessonData);
+  }).error(function() { alert("There was a problem retrieving the lesson"); });
 });

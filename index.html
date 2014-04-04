@@ -7,10 +7,24 @@
 </head>
 
 <body ng-app="app" ng-controller="SummaryCtrl">
+
   <br/>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 col-md-4">
+        <div class="nav nav-pills nav-stacked">
+          <div ng-repeat="series in launchCodeVideoSeries">
+            <h3><a href="">{{series.name}}</a><small>      ({{series.videos.length}} videos)</small></h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-6">
+        <div ui-view></div>
+      </div>
+    </div>
+  </div>
   <!--<div class="container">-->
 
-  <div ui-view></div>
 
   <script src="http://code.jquery.com/jquery.js" type="text/javascript"></script>
   <script src="lib/lodash/lodash.js"></script>
