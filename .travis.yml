@@ -1,0 +1,8 @@
+deploy:
+  provider: s3
+  access_key_id: AKIAJBDK7QBVBHEKPFZQ
+  secret_access_key:
+    secure: Mx7khUqU4QWa2IOkIKmC+3+YaRt7hvbEV95FvY1soAaVCyKi5PnNbxXwxEnIjwJw4h8x2zBzZ7ieCnk4f7uFDCY0uKRV33GSz0eqM6Etao4Pw/19nyvtK9PbMKPzudSE0UqHRBjMNODW5MbFeWzZJNJm8FHElXVKVWNoO4hKRXI=
+  bucket: launchcodetv.s3-website-us-east-1.amazonaws.com
+  on:
+    repo: MoMenne/launchcode-tv
