@@ -4,5 +4,6 @@
   {"name":"Git", "videos":["easy-versioning-with-git", "github", "github-pull-request", "sync-github-fork"]},
   {"name":"Linux", "videos":["linux-file-permissions"]},
   {"name":"C", "videos":["linux-file-permissions","gdb-debugger"]},
-  {"name":"Deployment", "videos":["ngrok"]}
+  {"name":"Deployment", "videos":["ngrok"]},
+  {"name":"MiniLectures", "videos":["nodejs", "learning-to-learn"]}
 ]
