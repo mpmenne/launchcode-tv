@@ -99,7 +99,7 @@ launchCodeTvApp.controller('TheatreCtrl', function($scope, $http, $stateParams, 
 
   $scope.getVideoByName = function(videoName) {
     var matches = _.filter($scope.videos, function(video) {
-      return videoName === video.thumb.split('/')[1].split('.')[0].split('_')[0]
+      return videoName === video.key
     });
     if (matches) { return matches[0]; } return {};
   }
@@ -115,7 +115,7 @@ launchCodeTvApp.controller('TheatreCtrl', function($scope, $http, $stateParams, 
     var videos = []
     for (var i = 0; i < lesson.videos.length; i++) {
       var fullVideo = $scope.getVideoByName(lesson.videos[i]);
-      if (fullVideo.thumb.split('/')[1].split('.')[0].split('_')[0] === $scope.currentlyShowingVideo.thumb.split('/')[1].split('.')[0].split('_')[0]) {
+      if (fullVideo.key === $scope.currentlyShowingVideo.key) {
         fullVideo.current = true;
       }
       videos.push(fullVideo);
@@ -158,11 +158,11 @@ launchCodeTvApp.controller('TheatreCtrl', function($scope, $http, $stateParams, 
       $scope.relatedVideos = $scope.getVideosForLesson($scope.currentLesson);
       if($scope.findNextLessonVideo()) {
         $scope.nextVideoLessonName = $scope.findNextLessonVideo().title;
-        $scope.nextVideoLessonUrlName = $scope.findNextLessonVideo().thumb.split('/')[1].split('.')[0].split('_')[0];
+        $scope.nextVideoLessonUrlName = $scope.findNextLessonVideo().key;
       }
       if ($scope.findPreviousLessonVideo()) {
         $scope.previousVideoLessonName = $scope.findPreviousLessonVideo().title;
-        $scope.previousVideoLessonUrlName = $scope.findPreviousLessonVideo().thumb.split('/')[1].split('.')[0].split('_')[0];
+        $scope.previousVideoLessonUrlName = $scope.findPreviousLessonVideo().key;
       }
     }
     $scope.addVideoPlayer();
