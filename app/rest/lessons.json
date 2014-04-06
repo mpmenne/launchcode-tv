@@ -1,4 +1,5 @@
 [
+  {"name":"LaunchCode", "videos":["uploading-to-launchcodetv"]},
   {"name":"HTML", "videos":["chrome-inspect", "chrome-easy-css", "chrome-javascript-debugger", "scrape-json-from-websites", "live-edit", "html-zen-coding"]},
   {"name":"Javascript", "videos":["chrome-javascript-debugger", "javascript-basics", "webstorm-javascript-debugging"]},
   {"name":"Git", "videos":["easy-versioning-with-git", "github", "github-pull-request", "sync-github-fork"]},
