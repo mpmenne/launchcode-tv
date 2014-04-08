@@ -8,3 +8,5 @@ Written with Angular.js and Twitter Bootstrap
 Travis CI Build: https://travis-ci.org/MoMenne/launchcode-tv
 
 Amazon S3 Hosting: launchcodetv.s3-website-us-east-1.amazonaws.com
+
+Big thanks to Kegan Myers for getting this live!!!
