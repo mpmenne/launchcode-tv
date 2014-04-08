@@ -1,0 +1,11 @@
+[
+  {"name":"LaunchCode", "videos":["uploading-to-launchcodetv"]},
+  {"name":"HTML", "videos":["chrome-inspect", "chrome-easy-css", "chrome-javascript-debugger", "scrape-json-from-websites", "live-edit", "html-zen-coding"]},
+  {"name":"Javascript", "videos":["chrome-javascript-debugger", "javascript-basics", "webstorm-javascript-debugging"]},
+  {"name":"Java", "videos":["java-on-the-command-line", "installing-intellij-idea"]},
+  {"name":"Git", "videos":["git-local-repository", "git-branching", "github", "github-pull-request", "sync-github-fork"]},
+  {"name":"Linux", "videos":["linux-navigating-the-command-line","linux-working-with-files","linux-vi","linux-file-permissions"]},
+  {"name":"C", "videos":["linux-file-permissions","gdb-debugger"]},
+  {"name":"Deployment", "videos":["ngrok", "hosting-static-html-sites-on-s3"]},
+  {"name":"MiniLectures", "videos":["nodejs", "learning-to-learn"]}
+]
