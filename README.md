@@ -5,8 +5,6 @@ Step by step LaunchCode mini lectures to help you master the material
 
 Written with Angular.js and Twitter Bootstrap
 
-Travis CI Build: https://travis-ci.org/MoMenne/launchcode-tv
+[Check it out here](http://tv.launchcode.us/)
 
-Amazon S3 Hosting: launchcodetv.s3-website-us-east-1.amazonaws.com
-
-Big thanks to Kegan Myers for getting this live!!!
+Big thanks to [Kegan Myers](http://terribleplan.com/) for getting this live!!!
