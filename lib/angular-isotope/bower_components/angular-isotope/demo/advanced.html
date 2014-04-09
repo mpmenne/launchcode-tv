@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Angular Isotope</title>
+  <meta name="description" content=""/>
+  <meta name="viewport" content="width=device-width"/>
+  <link rel="stylesheet" href="styles/main.css"/>
+  <link rel="stylesheet" href="styles/style.css"/>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/github.min.css">
+</head>   
+<body ng-app="angular-isotope-demo">
+
+  <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+      <script src="scripts/vendor/es5-shim.min.js"></script>
+      <script src="scripts/vendor/json3.min.js"></script>
+  <![endif]-->
+
+  <div class="container">
+    <div ng-init=
+      "xList=[
+      {name:'a', number:'1', date:'1360413309421', class:'purple'}
+      ,{name:'b', number:'5', date:'1360213309421', class:'orange'}
+      ,{name:'c', number:'10', date:'1360113309421', class:'blue'}
+      ,{name:'d', number:'2', date:'1360113309421', class:'green'}
+      ,{name:'e', number:'6', date:'1350613309421', class:'green'}
+      ,{name:'f', number:'21', date:'1350613309421', class:'orange'}
+      ,{name:'g', number:'3', date:'1340613309421', class:'blue'}
+      ,{name:'h', number:'7', date:'1330613309001', class:'purple'}
+      ,{name:'i', number:'22', date:'1360412309421', class:'blue'}
+      ] ">
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <h1>Angular-Isotope Example <small>orderBy</small></h1>
+          <h4>
+            <a href="https://github.com/mankindsoftware" target="_blank">Mark Allen Hall - Mankind Software</a>
+          </h4>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <h4>Selector-Based Filter</h4>
+            <div class="btn-group" opt-kind ok-key="filter" >
+              <button type='button' class='btn btn-default' ok-sel="*">Show All</button>
+              <button type='button' class='btn btn-default' ok-sel=".purple">Purple</button>
+              <button type='button' class='btn btn-default' ok-sel=".orange">Orange</button>
+              <button type='button' class='btn btn-default' ok-sel=".blue">Blue</button>
+              <button type='button' class='btn btn-default' ok-sel=".green">Green</button>
+              <button type='button' class='btn btn-default' ok-sel=":not(.blue)">Not Blue</button>
+              <button type='button' class='btn btn-default' ok-sel="#extra">Extra Only</button>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Selector and Value-Based Sort</h4>
+            <div class="btn-group" opt-kind ok-key="sortBy">
+              <button type="button" class="btn btn-default" ok-sel=".name">Name</button>
+              <button type="button" class="btn btn-default" ok-sel="[number]" ok-type="integer">Number</button>
+              <button type="button" class="btn btn-default" ok-sel="[date]" ok-type="integer">Date</button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4>Scripted Change</small></h4>
+            <button type='button' class='btn btn-default' onClick="addToList()">Add item to array</button>
+          </div>
+        </div>
+           
+        <p></p>
+        <div class="row">
+          <div class="col-md-12">
+            <h4>ng-repeat with orderBy</h4> 
+            <div hljs><li ng-repeat="x in xList | orderBy:'date'" isotope-item>...</li></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- ISOTOPECONTAINTER -->
+          <ul id="isotopeContainer" isotope-container ng-cloak class="ng-cloak">
+            <li ng-repeat="x in xList | orderBy:'date'" isotope-item class="kindling {{x.class}}" onClick="removeItem(this)">
+               <div class="symbol">{{x.name}}</div>
+               <div class="weight" date="{{x.date}}">{{x.date | date}}</div>
+               <div class="number" number="{{x.number}}">{{x.number}}</div>
+            </li>
+          </ul>
+          <!-- /ISOTOPECONTAINTER -->
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <h4>xList</h4>
+            <div>Live view of this demo's array.</div>
+            <p></p>
+            <div class="well">{{xList}}</div>
+          </div>
+        </div>
+      
+      </div>
+      
+      <!-- COLUMN 2 -->
+      <div class="col-md-6">
+        
+        <div class="row">
+          <h4><a href="index.html" >Basic</a> | <a href="advanced.html"> ng-repeat with orderBy filter </a> | <a href="advancedplus.html">Best Practice</a></h4>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 well">
+          <h3>Using ng-repeat with orderBy and other filters</h3>
+          <h4>Added Elements are not Positioned</h4>   
+          <p>Angular-Isotope looks for the last item in the array before the Isotope mode is refreshed.  Adding a new item to the original array does not refresh Isotope because it is not considered the last item in the orderBy scenario.
+          </p>
+          <p>
+          <div hljs>
+if (attrs.ngRepeat && true === scope.$last) {
+  element.ready(function() {
+    return $timeout((function() {
+      return scope.refreshIso();
+    }), config.refreshDelay || 0);
+  });
+}
+          </div>
+          </p>
+
+         </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 well">
+          <h3>Use Angular-Isotope event to refresh</h3>
+          <p><div hljs>$scope.$emit('iso-method', {name:null, params:null})</div></p>
+          <h4>Example</h4>
+          <p><button class='btn btn-success' onClick="addToList()">Add item to array</button></p>
+          <p><button class="btn btn-success" ng-click="$emit('iso-method', {name:null, params:null})">isotope()</button></p> 
+          </div>
+
+        <div class="row">
+          <div class="col-md-12 well">
+          <h3>Please use "track by".</h3>
+          <p>
+          The added item is denoted as $last when "track by" is used. This is recommended.
+          </p>
+          <p>
+          Ng-repeat's "track by" allows a key to be specified, for example "name" or "id", by which a model is reassociated with a pre-existing DOM element/Isotope model.  The more proactive DOM element management required of Angular, to track and reuse elements, has the advantage of letting the Isotope DOM be consistent with the Angular model, without any added $watch, refresh, or similar mechanisms.
+          </p>
+          </div>
+        </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/vendor/jquery-2.1.0.min.js"></script>
+  <script>
+    var addToList = function(number) {
+      var s=angular.element('#isotopeContainer').scope();
+      s.count = s.count || 0;
+      var newItem={name:'add', number:number || s.count--, date: Date.now(), class:'purple'};
+      s.$apply(s.xList.push(newItem));
+    };
+    var addLastItem = function() {
+      s.lastNumber = s.lastNumber || [];
+      addToList(s.lastNumber.shift());
+    };
+    var removeItem = function(elem) {
+      if (!Array.prototype.filter) return;
+      var s=angular.element('#isotopeContainer').scope();
+      var number = $(elem).find(".number").attr("number");
+      var items = s.xList.filter(function( obj ) {
+        return +obj.number != +number;
+      });
+      s.lastNumber = s.lastNumber || [];
+      s.lastNumber.unshift(number);
+      s.$apply(s.xList = items);
+    };
+  </script>
+  <script src="scripts/vendor/angular.min.js"></script>
+  <script src="scripts/vendor/jquery.isotope.js"></script>
+  <script src="scripts/angular-isotope.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script src="http://pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
+</body>
+</html>
