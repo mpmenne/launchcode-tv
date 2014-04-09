@@ -93,7 +93,7 @@ launchCodeTvApp.controller('TheatreCtrl', function($scope, $http, $stateParams, 
   $scope.previousVideoLessonUrlName = "";
 
   $scope.addVideoPlayer = function() {
-    angular.element('#videoPlayer').append("<iframe frameborder='0' src='" + $scope.currentlyShowingVideo.url + "' width='650' height='450'></iframe>")
+    angular.element('#videoPlayer').append("<iframe frameborder='0' src='" + $scope.currentlyShowingVideo.url + "'></iframe>")
     angular.element('#videoPlayer').append("<h1>" + $scope.currentlyShowingVideo.title + "</h1>");
   }
 
