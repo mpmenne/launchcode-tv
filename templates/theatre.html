@@ -16,9 +16,9 @@
 
   <div class="center-block row">
     <div class="col-xs-12">
-      <a href="/#/videos/{{previousVideoLessonUrlName}}?lesson={{currentLesson.name}}" class="btn btn-primary">Previous:
+      <a ng-if="previousVideoLessonUrlName" href="/#/videos/{{previousVideoLessonUrlName}}?lesson={{currentLesson.name}}" class="btn btn-primary">Previous:
         {{previousVideoLessonName}}</a>
-      <a href="/#/videos/{{nextVideoLessonUrlName}}?lesson={{currentLesson.name}}" class="btn btn-success">Next:
+      <a ng-if="nextVideoLessonUrlName" href="/#/videos/{{nextVideoLessonUrlName}}?lesson={{currentLesson.name}}" class="btn btn-success">Next:
         {{nextVideoLessonName}}</a>
     </div>
   </div>
