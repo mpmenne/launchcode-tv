@@ -9,7 +9,7 @@ Written with Angular.js and Twitter Bootstrap
 
 Big thanks to [Kegan Myers](http://terribleplan.com/) for getting this live!!!
 
-Another big thanks to [Josh Kroll](https://github.com/comjosh64)
+Another big thanks to [Josh Krull](https://github.com/comjosh64)
 
 
 
