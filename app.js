@@ -29,14 +29,14 @@ launchCodeTvApp.controller('SummaryCtrl', function ($scope, $http, $filter, $loc
   $scope.launchCodeVideoSeries = [];
   $scope.selectedSeries = "";
 
-  $http.get('rest/videos.json')
+  $http.get('rest/videos1.json')
     .success(function (data) {
       $scope.launchCodeVideos = data;
     }).error(function (data) {
       alert("There was a problem retrieving the videos");
     });
 
-  $http.get('rest/lessons.json')
+  $http.get('rest/lessons1.json')
     .success(function (data) {
       $scope.launchCodeVideoSeries = data;
     }).error(function (data) {
@@ -53,7 +53,7 @@ launchCodeTvApp.controller('SummaryCtrl', function ($scope, $http, $filter, $loc
 launchCodeTvApp.filter('videoFilter', function ($http) {
   var lessons = [];
 
-  $http.get('rest/lessons.json')
+  $http.get('rest/lessons1.json')
     .success(function (data) {
       lessons = data;
     }).error(function (data) {
@@ -204,7 +204,7 @@ launchCodeTvApp.controller('TheatreCtrl', function ($scope, $http, $stateParams,
     console.log("all done!!!!  videos: " + $scope.videos.length + "  lessons: " + $scope.lessons.length);
   });
 
-  $http.get('rest/videos.json').success(function (data) {
+  $http.get('rest/videos1.json').success(function (data) {
     videosPromise.resolve(data);
   }).error(function () {
     alert("There was a problem retrieving the videos");
