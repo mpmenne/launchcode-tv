@@ -210,7 +210,7 @@ launchCodeTvApp.controller('TheatreCtrl', function ($scope, $http, $stateParams,
     alert("There was a problem retrieving the videos");
   });
 
-  $http.get('rest/lessons.json').success(function (lessonData) {
+  $http.get('rest/lessons1.json').success(function (lessonData) {
     lessonPromise.resolve(lessonData);
   }).error(function () {
     alert("There was a problem retrieving the lesson");
