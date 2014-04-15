@@ -1,7 +1,7 @@
 [
   {"name":"LaunchCode", "videos":["uploading-to-launchcodetv", "jim-talks-launchcode", "hackathon-video", "ketc9-special", "glass-blowing"]},
   {"name":"GettingStarted", "videos":["getting-started-cs50x"]},
-  {"name":"MiniLectures", "videos":["nodejs", "learning-to-learn", "licensing-and-databases", "more-on-databases"]},
+  {"name":"MiniLectures", "videos":["nodejs", "learning-to-learn", "licensing-and-databases", "more-on-databases", "oop-java"]},
   {"name":"HTML", "videos":["chrome-inspect", "chrome-easy-css", "chrome-javascript-debugger", "scrape-json-from-websites", "live-edit", "html-zen-coding"]},
   {"name":"Javascript", "videos":["chrome-javascript-debugger", "javascript-basics", "webstorm-javascript-debugging"]},
   {"name":"Java", "videos":["java-on-the-command-line", "installing-intellij-idea", "encapsulation", "inheritance", "polymorphism"]},
