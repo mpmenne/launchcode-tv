@@ -35,3 +35,30 @@
     width: 100%;
     height: 100%;
 }
+.video-container > h1,
+.video-container > div {
+    float: left;
+}
+.video-container > h1 {
+    clear: left;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .video-item:nth-child(2n+1) {
+        clear: left;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .video-container > div:nth-child(3n+1) {
+        clear: left;
+    }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .video-container > div:nth-child(4n+1) {
+        clear: left;
+    }
+}
