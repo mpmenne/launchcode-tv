@@ -1,4 +1,4 @@
-var launchCodeTvApp = angular.module('app', ['uiRouterExample']);
+var launchCodeTvApp = angular.module('app', ['uiRouterExample', 'iso.directives']);
 
 angular.module("uiRouterExample", ["ui.router"]).config(function ($stateProvider, $urlRouterProvider) {
 
@@ -28,6 +28,7 @@ launchCodeTvApp.controller('SummaryCtrl', function ($scope, $http, $filter, $loc
   $scope.launchCodeVideos = [];
   $scope.launchCodeVideoSeries = [];
   $scope.selectedSeries = "";
+  $scope.selectedVideo = '';
 
   $http.get('rest/videos1.json')
     .success(function (data) {
@@ -44,9 +45,14 @@ launchCodeTvApp.controller('SummaryCtrl', function ($scope, $http, $filter, $loc
     });
 
   $scope.selectSeries = function (name) {
+    $scope.selectedVideo = '';
     $scope.selectedSeries = name;
     console.log("Series has changed to " + $scope.selectedSeries);
     $location.path("/home")
+  }
+
+  $scope.selectVideo = function(name) {
+    $scope.selectedVideo = name;
   }
 });
 
