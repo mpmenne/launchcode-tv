@@ -54,6 +54,11 @@ launchCodeTvApp.controller('SummaryCtrl', function ($scope, $http, $filter, $loc
   $scope.selectVideo = function(name) {
     $scope.selectedVideo = name;
   }
+
+  $scope.searchVideos = function(ev) {
+    if (ev.which==13)
+      $scope.enteredSearchCriteria = $scope.searchCriteria;
+  }
 });
 
 launchCodeTvApp.filter('videoFilter', function ($http) {

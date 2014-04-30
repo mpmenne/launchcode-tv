@@ -14,6 +14,7 @@
 <div class="container-fluid">
     <div class="col-xs-12 col-sm-4 col-md-3">
         <div class="hidden-xs nav nav-pills nav-stacked" opt-kind ok-key="filter">
+          <input type="text" ng-model="searchCriteria" ng-keypress="searchVideos($event)" placeholder="Search" >
           <div ng-repeat="series in launchCodeVideoSeries" ng-click="selectSeries(series.name)" ok-sel=".{{series.name}}">
             <h3 class="lessonLink" ng-click="selectSeries(series.name)" ok-sel=".{{series.name}}">{{series.name}}</h3>
           </div>
@@ -27,7 +28,7 @@
 
     <div ng-class="{gone:selectedVideo}">
       <div class="col-xs-12 col-sm-8 col-md-9 row video-container ng-cloak" isotope-container ng-cloak >
-        <div ng-repeat="video in launchCodeVideos" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 video-item {{video.lesson}}" ng-click="selectVideo(video.key)" isotope-item>
+        <div ng-repeat="video in launchCodeVideos | filter:enteredSearchCriteria" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 video-item {{video.lesson}}" ng-click="selectVideo(video.key)" isotope-item>
           <a class="thumbnail" href="/#/videos/{{video.key}}?lesson={{video.lesson}}">
             <img src="{{video.thumb}}" alt="..."/>
 
