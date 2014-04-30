@@ -14,7 +14,9 @@
 <div class="container-fluid">
     <div class="col-xs-12 col-sm-4 col-md-3">
         <div class="hidden-xs nav nav-pills nav-stacked" opt-kind ok-key="filter">
-            <button class="btn btn-default" ng-repeat="series in launchCodeVideoSeries" ng-click="selectSeries(series.name)" ok-sel=".{{series.name}}">{{series.name}}</button>
+          <div ng-repeat="series in launchCodeVideoSeries" ng-click="selectSeries(series.name)" ok-sel=".{{series.name}}">
+            <h3 class="lessonLink" ng-click="selectSeries(series.name)" ok-sel=".{{series.name}}">{{series.name}}</h3>
+          </div>
         </div>
         <div class="visible-xs row">
             <div ng-repeat="series in launchCodeVideoSeries" class="col-xs-4" opt-kind ok-key="filter">>

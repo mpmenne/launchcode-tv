@@ -27,6 +27,10 @@
     display: none;
 }
 
+.lessonLink {
+    color: #428bca;
+}
+
 #videoPlayer {
     position: relative;
     padding-bottom: 56.25%;
