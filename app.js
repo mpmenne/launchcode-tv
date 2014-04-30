@@ -46,6 +46,8 @@ launchCodeTvApp.controller('SummaryCtrl', function ($scope, $http, $filter, $loc
 
   $scope.selectSeries = function (name) {
     $scope.selectedVideo = '';
+    $scope.enteredSearchCriteria = '';
+    $scope.searchCriteria = '';
     $scope.selectedSeries = name;
     console.log("Series has changed to " + $scope.selectedSeries);
     $location.path("/home")
@@ -56,8 +58,11 @@ launchCodeTvApp.controller('SummaryCtrl', function ($scope, $http, $filter, $loc
   }
 
   $scope.searchVideos = function(ev) {
-    if (ev.which==13)
+    if (ev.which==13) {
+      $scope.selectedVideo = '';
+      $scope.selectedSeries = '';
       $scope.enteredSearchCriteria = $scope.searchCriteria;
+    }
   }
 });
 

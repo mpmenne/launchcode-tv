@@ -14,7 +14,7 @@
 <div class="container-fluid">
     <div class="col-xs-12 col-sm-4 col-md-3">
         <div class="hidden-xs nav nav-pills nav-stacked" opt-kind ok-key="filter">
-          <input type="text" ng-model="searchCriteria" ng-keypress="searchVideos($event)" placeholder="Search" >
+          <input type="text" ng-model="searchCriteria" ng-keypress="searchVideos($event)" placeholder="Search" ok-sel="*">
           <div ng-repeat="series in launchCodeVideoSeries" ng-click="selectSeries(series.name)" ok-sel=".{{series.name}}">
             <h3 class="lessonLink" ng-click="selectSeries(series.name)" ok-sel=".{{series.name}}">{{series.name}}</h3>
           </div>
