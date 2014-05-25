@@ -54,5 +54,7 @@
 {"key":"java_middle_man", "title":"Java Refactoring: Middleman", "thumb":"http://img.youtube.com/vi/6AQODjXybRY/0.jpg", "url":"//www.youtube.com/embed/6AQODjXybRY", "tags":"Java, Example", "lesson":"Java", "description":"Build a simple Java game in under 10 minutes using Intellij IDEA"},
 {"key":"java_game_10min", "title":"Java Game in 4 minutes", "thumb":"http://img.youtube.com/vi/QCXCgKzff_Q/0.jpg", "url":"//www.youtube.com/embed/QCXCgKzff_Q", "tags":"Java, Game, Fast", "lesson":"Java", "description":"Create a simple Java game in under 4 minutes"},
 {"key":"java_strategy", "title":"Strategy Design Pattern Java", "thumb":"http://img.youtube.com/vi/U38wdyxCBpk/0.jpg", "url":"//www.youtube.com/embed/U38wdyxCBpk", "tags":"Java, Design Patterns", "lesson":"Java", "description":"Use the Strategy Design Pattern to easily swap in new classes to you existing Java App"},
-{"key":"java_strings", "title":"Java Strings", "thumb":"http://img.youtube.com/vi/U38wdyxCBpk/0.jpg", "url":"//www.youtube.com/embed/mFwT0iJAnMA", "tags":"Java, Design Patterns", "lesson":"Java", "description":"Strings are better than and more awesome than character arrays in C"}
+{"key":"java_strings", "title":"Java Strings", "thumb":"http://img.youtube.com/vi/U38wdyxCBpk/0.jpg", "url":"//www.youtube.com/embed/mFwT0iJAnMA", "tags":"Java, Basics", "lesson":"Java", "description":"Strings are better than and more awesome than character arrays in C"},
+{"key":"java_strings_performance", "title":"Java String Performance", "thumb":"http://img.youtube.com/vi/o4MkwPimSIc/0.jpg", "url":"//www.youtube.com/embed/o4MkwPimSIc", "tags":"Java, Strings, Best Practice, Performance", "lesson":"Java", "description":"Best practices and best performance for working with Strings in Java"}
+o4MkwPimSIc
 ]
