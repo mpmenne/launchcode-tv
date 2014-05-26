@@ -58,6 +58,4 @@
 {"key":"java_strings_performance", "title":"Java String Performance", "thumb":"http://img.youtube.com/vi/o4MkwPimSIc/0.jpg", "url":"//www.youtube.com/embed/o4MkwPimSIc", "tags":"Java, Strings, Best Practice, Performance", "lesson":"Java", "description":"Best practices and best performance for working with Strings in Java"},
 {"key":"java_exceptions", "title":"Java Exceptions", "thumb":"http://img.youtube.com/vi/MPXnRx510kw", "url":"//www.youtube.com/embed/MPXnRx510kw", "tags":"Java, Basics", "lessson":"Java". "description":"Learn to handle both expected and unexpected runtime errors in your Java application"},
 {"key":"java_exceptions_must_know", "title":"Java Exceptions MUST KNOW", "thumb":"http://img.youtube.com/vi/tocin0HtdFI", "url":"//www.youtube.com/embed/tocin0HtdFI", "tags":"Java, Basic", "lesson":"Java", "description":"These are the techniques around exceptions that every Java dev should know"}
-  
-}
 ]
