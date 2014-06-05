@@ -12,5 +12,5 @@
   {"name":"C", "videos":["linux-file-permissions","gdb-debugger"]},
   {"name":"Deployment", "videos":["ngrok", "hosting-static-html-sites-on-s3"]},
   {"name":"IDEs", "videos":["localhistory", "installing-intellij-idea"]},
-  {"name":"Interviews", "videos":["hackerrank_tips"]}
+  {"name":"Interviews", "videos":["hackerrank_tips", "job_interview"]}
 ]
