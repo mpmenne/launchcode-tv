@@ -11,5 +11,6 @@
   {"name":"Linux", "videos":["linux-navigating-the-command-line","linux-working-with-files","linux-vi","linux-file-permissions"]},
   {"name":"C", "videos":["linux-file-permissions","gdb-debugger"]},
   {"name":"Deployment", "videos":["ngrok", "hosting-static-html-sites-on-s3"]},
-  {"name":"IDEs", "videos":["localhistory", "installing-intellij-idea"]}
+  {"name":"IDEs", "videos":["localhistory", "installing-intellij-idea"]},
+  {"name":"Interviews", "videos":["hackerrank_tips"]}
 ]
