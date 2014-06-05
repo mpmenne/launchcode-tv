@@ -27,8 +27,9 @@ launchCodeTvApp.controller('SummaryCtrl', function ($scope, $http, $filter, $loc
 
   $scope.launchCodeVideos = [];
   $scope.launchCodeVideoSeries = [];
-  $scope.selectedSeries = "";
-  $scope.selectedVideo = '';
+
+  $scope.selectedSeries = $location.search().lesson;
+  $scope.selectedVideo = $location.path().split('/')[2];
 
   $http.get('rest/videos1.json')
     .success(function (data) {
