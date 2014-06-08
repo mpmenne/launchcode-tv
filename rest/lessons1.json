@@ -10,7 +10,7 @@
   {"name":"Git", "videos":["easy-versioning-with-git", "git-local-repository", "git-branching", "github", "github-edit-files", "github-pull-request", "sync-github-fork"]},
   {"name":"Linux", "videos":["linux-navigating-the-command-line","linux-working-with-files","linux-vi","linux-file-permissions"]},
   {"name":"C", "videos":["linux-file-permissions","gdb-debugger"]},
-  {"name":"CS50", "videos":["cs50_mario", "cs50_greedy", "cs50_pset1_walkthrough"]},
+  {"name":"CS50", "videos":["cs50_mario", "cs50_greedy", "cs50_pset1_walkthrough", "cs50_command_line"]},
   {"name":"Deployment", "videos":["ngrok", "hosting-static-html-sites-on-s3"]},
   {"name":"IDEs", "videos":["localhistory", "installing-intellij-idea"]},
   {"name":"Interviews", "videos":["hackerrank_tips", "job_interview"]}
