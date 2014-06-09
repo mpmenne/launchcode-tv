@@ -6,7 +6,7 @@
   {"name":"Javascript", "videos":["chrome-javascript-debugger", "chrome_conditional_breakpoint", "javascript-basics", "webstorm-javascript-debugging"]},
   {"name":"Java", "videos":["java-jdk-setup", "java-hello-world1", "java-hello-world2", "java-on-the-command-line", "installing-intellij-idea", "intellij_reformat_code", "java_strings", "java_strings_performance", "code_smell_unitialized_variables", "java_illegal_state_exception", "java_game_10min", "java_exceptions", "java_break", "java_override", "java_middle_man", "java_strategy", "java_factory_design_pattern", "java_exceptions_must_know", "java_try_with_resources", "java_singleton", "java_dependency_injection", "java_maven", "java_spring_framework", "encapsulation", "inheritance", "polymorphism", "spring-boot", "spring-boot-default-port", "spring-mvc", "spring-mvc-serialization"]},
   {"name":"Databases", "videos":["sqlite"]},
-  {"name":"Android", "videos":["android_emulator_skin_error", "android_studio_change_jdk", "installing_android_developer_studio", "android-hackathon"]},
+  {"name":"Android", "videos":["installing_android_developer_studio", "android_emulator_skin_error", "android_haxm_emulator", "android_studio_change_jdk", "android-hackathon"]},
   {"name":"Git", "videos":["easy-versioning-with-git", "git-local-repository", "git-branching", "github", "github-edit-files", "github-pull-request", "sync-github-fork"]},
   {"name":"Linux", "videos":["linux-navigating-the-command-line","linux-working-with-files","linux-vi","linux-file-permissions"]},
   {"name":"C", "videos":["linux-file-permissions","gdb-debugger"]},
