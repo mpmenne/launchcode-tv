@@ -29,8 +29,12 @@
   <div class="row" ng-repeat="video in relatedVideos">
     <div class="col-xs-12">
       <!--<p ng-class="{bg-success:video.currentVideo}"><a href="">{{$index + 1}}.  {{video.title}}</a></p>-->
-      <p ng-class="{current:video.current, notCurrent:!video.current}"><a
+
+      <p ng-if="!video.outsideContent" ng-class="{current:video.current, notCurrent:!video.current}"><a
           href="#/videos/{{video.key}}?lesson={{currentLesson.name}}">{{$index
+        + 1}}. <strong>{{video.title}}</strong> ---- <em>{{video.description}}</em></a></p>
+      <p ng-if="video.outsideContent" ng-class="{current:video.current, notCurrent:!video.current}"><a
+          href="{{video.url}}">{{$index
         + 1}}. <strong>{{video.title}}</strong> ---- <em>{{video.description}}</em></a></p>
     </div>
     <div class="col-xs-6 col-md-6"></div>
