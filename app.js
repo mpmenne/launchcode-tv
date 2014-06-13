@@ -152,6 +152,7 @@ launchCodeTvApp.controller('TheatreCtrl', function ($scope, $http, $stateParams,
 
     for (var i = 0; i < lesson.videos.length; i++) {
       var fullVideo = $scope.getVideoByName(lesson.videos[i]);
+      if (!fullVideo) { alert('Please check the spelling of your video key '); }
 
       if (fullVideo.key === $scope.currentlyShowingVideo.key) {
         fullVideo.current = true;
