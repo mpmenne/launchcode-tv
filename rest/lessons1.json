@@ -11,7 +11,7 @@
   {"name":"Linux", "videos":["linux-navigating-the-command-line","linux-working-with-files","linux-vi","linux-file-permissions"]},
   {"name":"C", "videos":["linux-file-permissions","gdb-debugger"]},
   {"name":"CS50", "videos":["cs50_mario", "cs50_greedy", "cs50_appliance", "cs50_pset1_walkthrough", "cs50_command_line", "cs50_style", "cs50_compiling_and_running", "cs50_user_input"]},
-  {"name":"Deployment", "videos":["ngrok", "hosting-static-html-sites-on-s3"]},
+  {"name":"DevOps", "videos":["ngrok", "hosting-static-html-sites-on-s3", "docker_intro"]},
   {"name":"IDEs", "videos":["localhistory", "installing-intellij-idea"]},
   {"name":"Interviews", "videos":["hackerrank_tips", "job_interview"]}
 ]
