@@ -10,7 +10,7 @@
   {"name":"Git", "videos":["easy-versioning-with-git", "git-local-repository", "git-branching", "github", "github-edit-files", "github-pull-request", "sync-github-fork"]},
   {"name":"Linux", "videos":["linux-navigating-the-command-line","linux-working-with-files","linux-vi","linux-file-permissions"]},
   {"name":"C", "videos":["linux-file-permissions","gdb-debugger"]},
-  {"name":"CS50", "videos":["cs50_mario", "cs50_style", "cs50_variables", "cs50_typecasting", "cs50_loops",  "cs50_file_input", "cs50_greedy", "cs50_strings", "cs50_bubble_sort", "cs50_vim", "cs50_booleans", "cs50_libaries", "cs50_ASCII", "cs50_structs", "cs50_pipes"]},
+  {"name":"CS50", "videos":["cs50_mario", "cs50_functions", "cs50_style", "cs50_variables", "cs50_arrays",  "cs50_loops",  "cs50_file_input",  "cs50_precedence", "cs50_typecasting", "cs50_pointers", "cs50_recursion", "cs50_greedy", "cs50_strings",  "cs50_vim", "cs50_booleans", "cs50_libaries", "cs50_ASCII", "cs50_structs", "cs50_pipes", "cs50_asymptotic_notation", "cs50_bubble_sort", "cs50_quick_sort", "cs50_merge_sort", "cs50_insertion_sort", "cs50_linear_search", "cs50_binary_search", "cs50_valgrind"]},
   {"name":"DevOps", "videos":["ngrok", "hosting-static-html-sites-on-s3", "docker_intro"]},
   {"name":"IDEs", "videos":["localhistory", "installing-intellij-idea"]},
   {"name":"Interviews", "videos":["hackerrank_tips", "job_interview"]}
