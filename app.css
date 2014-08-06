@@ -51,6 +51,10 @@
     clear: left;
 }
 
+.col-xs-4 a {
+    cursor: pointer;
+}
+
 @media (min-width: 768px) and (max-width: 991px) {
     .video-item:nth-child(2n+1) {
         clear: left;
